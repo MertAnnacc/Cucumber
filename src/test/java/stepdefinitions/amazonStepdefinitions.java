@@ -34,5 +34,31 @@ public class amazonStepdefinitions {
 
     }
 
+    @Then("amazon arama kutusuna Java yazip aratir")
+    public void amazon_arama_kutusuna_java_yazip_aratir() {
+        amazonPage = new AmazonPage();
+        amazonPage.amazonAramaKutusu.sendKeys("Java" + Keys.ENTER);
+    }
+    @Then("arama sonuclarinin Java icerdigini test eder")
+    public void arama_sonuclarinin_java_icerdigini_test_eder() {
+        String actualAramaSonucu = amazonPage.aramaSonucuElementi.getText();
+        String expectedKelime = "Java";
+
+        Assert.assertTrue(actualAramaSonucu.contains(expectedKelime));
+    }
+
+    @Then("amazon arama kutusuna Samsung yazip aratir")
+    public void amazon_arama_kutusuna_samsung_yazip_aratir() {
+        amazonPage = new AmazonPage();
+        amazonPage.amazonAramaKutusu.sendKeys("Samsung" + Keys.ENTER);
+    }
+    @Then("arama sonuclarinin Samsung icerdigini test eder")
+    public void arama_sonuclarinin_samsung_icerdigini_test_eder() {
+        String actualAramaSonucu = amazonPage.aramaSonucuElementi.getText();
+        String expectedKelime = "Samsung";
+
+        Assert.assertTrue(actualAramaSonucu.contains(expectedKelime));
+    }
+
 
 }
